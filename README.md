@@ -1,2 +1,2 @@
-# bbasket_api
-Django REST API
+# bbasket-api-demo
+테스트용
