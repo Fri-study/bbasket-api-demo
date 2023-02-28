@@ -1,8 +1,10 @@
-from django.contrib.auth import \
-    authenticate  # 장고 기본 authenticate 함수 -> TokenAuth 방식으로 인증해 줌
+from django.contrib.auth import (
+    authenticate,
+)  # 장고 기본 authenticate 함수 -> TokenAuth 방식으로 인증해 줌
 from django.contrib.auth.models import User  # 장고의 기본 user 모델
-from django.contrib.auth.password_validation import \
-    validate_password  # 장고의 기본 패스워드 검증도구
+from django.contrib.auth.password_validation import (
+    validate_password,
+)  # 장고의 기본 패스워드 검증도구
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token  # Token 모델
 from rest_framework.validators import UniqueValidator  # 이메일 중복 방지를 위한 검증도구
@@ -58,5 +60,5 @@ class LoginSerializer(serializers.Serializer):
             token = Token.objects.get(user=user)  # 토큰에 맞는 user 가져오기
             return token
         raise serializers.ValidationError(
-            {"error": "unable to log in with provided credentials."}
+            {"error": "Unable to log in with provided credentials."}
         )
